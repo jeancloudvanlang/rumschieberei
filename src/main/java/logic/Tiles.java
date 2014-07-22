@@ -13,23 +13,23 @@ import java.util.Observable;
 public class Tiles extends Observable implements Iterable<Tile> {
     public ArrayList<Tile> tiles;
 
-    public Tiles(){
+    public Tiles() {
         tiles = new ArrayList<Tile>();
     }
 
-    public void add(Tile tile){
+    public void add(Tile tile) {
         tiles.add(tile);
     }
 
-    public Tile getTheGap(){
-        for (Tile tmpTile: tiles){
+    public Tile getTheGap() {
+        for (Tile tmpTile : tiles) {
             if (tmpTile.id == 0)
                 return tmpTile;
         }
         throw new RuntimeException();
     }
 
-    public void swapTiles(int tileIdUno, int tileIdDuo){
+    public void swapTiles(int tileIdUno, int tileIdDuo) {
         Collections.swap(tiles, tileIdUno, tileIdDuo);
         setChanged();
         notifyObservers(this);
@@ -42,11 +42,12 @@ public class Tiles extends Observable implements Iterable<Tile> {
 
     /**
      * Get the position in the tiles array of a tile with the specific id.
+     *
      * @param id The tile id.
      * @return The position.
      */
     public int getPosOfTileId(int id) {
-        for (int i=0; i<tiles.size(); i++){
+        for (int i = 0; i < tiles.size(); i++) {
             if (tiles.get(i).id == id)
                 return i;
         }
@@ -55,10 +56,11 @@ public class Tiles extends Observable implements Iterable<Tile> {
 
     /**
      * Check if the array is ordered according to the tile id.
+     *
      * @return True if the tiles ArrayList is ordered otherwise false.
      */
-    public boolean isOrdered(){
-        for (int i=0; i<tiles.size(); i++){
+    public boolean isOrdered() {
+        for (int i = 0; i < tiles.size(); i++) {
             if (tiles.get(i).id != i)
                 return false;
         }

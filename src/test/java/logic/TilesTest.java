@@ -15,7 +15,7 @@ public class TilesTest {
 
     @Before
     public void setUp() throws Exception {
-        for (int i=0; i<numTiles; i++){
+        for (int i = 0; i < numTiles; i++) {
             tilesOrderedAsc.add(new Tile(i));
         }
     }
@@ -23,15 +23,15 @@ public class TilesTest {
     @Test
     public void testGetPosOfTileId() throws Exception {
         assertEquals(tilesOrderedAsc.getPosOfTileId(0), 0);
-        assertEquals(tilesOrderedAsc.getPosOfTileId(9),9);
+        assertEquals(tilesOrderedAsc.getPosOfTileId(9), 9);
 
         Collections.reverse(tilesOrderedAsc.tiles);
 
         assertNotEquals(tilesOrderedAsc.getPosOfTileId(0), 0);
         assertNotEquals(tilesOrderedAsc.getPosOfTileId(9), 9);
 
-        assertEquals(tilesOrderedAsc.getPosOfTileId(0), numTiles-1);
-        assertEquals(tilesOrderedAsc.getPosOfTileId(numTiles-1),0);
+        assertEquals(tilesOrderedAsc.getPosOfTileId(0), numTiles - 1);
+        assertEquals(tilesOrderedAsc.getPosOfTileId(numTiles - 1), 0);
 
     }
 

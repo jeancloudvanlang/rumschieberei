@@ -12,7 +12,7 @@ import java.util.Observer;
 /**
  * Created by VP on 11.07.14.
  */
-public class RumSchiebereiFrame extends JFrame implements Observer, ActionListener{
+public class RumSchiebereiFrame extends JFrame implements Observer, ActionListener {
 
     private static final String gameName = "rumschieberei";
 
@@ -32,13 +32,13 @@ public class RumSchiebereiFrame extends JFrame implements Observer, ActionListen
         add(Box.createRigidArea(new Dimension(0, 5)), BorderLayout.NORTH); //?
 
         tiles = new Tiles();
-        rumSchiebereiPanel = new RumSchiebereiPanel(this, fieldSizeX,fieldSizeY, tiles) ;
+        rumSchiebereiPanel = new RumSchiebereiPanel(this, fieldSizeX, fieldSizeY, tiles);
 
         add(rumSchiebereiPanel, BorderLayout.CENTER);
 
         tiles.addObserver(this);
 
-        setSize(rumSchiebereiPanel.getIconSizeX()+ tileOffset * fieldSizeX, rumSchiebereiPanel.getIconSizeY()+ tileOffset * fieldSizeY);
+        setSize(rumSchiebereiPanel.getIconSizeX() + tileOffset * fieldSizeX, rumSchiebereiPanel.getIconSizeY() + tileOffset * fieldSizeY);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(false);
@@ -48,18 +48,18 @@ public class RumSchiebereiFrame extends JFrame implements Observer, ActionListen
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() instanceof Tile){
+        if (e.getSource() instanceof Tile) {
             Tile tile = (Tile) e.getSource();
 
             // move tile if possible
-            if (tile.isNeighbourOf(tiles.getTheGap())){
+            if (tile.isNeighbourOf(tiles.getTheGap())) {
                 //switch tile with gap
                 tiles.swapTiles(tiles.getPosOfTileId(tile.id), tiles.getPosOfTileId(tiles.getTheGap().id));
 
                 if (tiles.isOrdered()) {
                     JDialog yeahYeah = new JDialog(this, "Yeah", true);
                     yeahYeah.add(new JLabel("YEAH, yeah, yeah!"));
-                    yeahYeah.setLocation(this.getLocation().x+this.getWidth()/2, this.getLocation().y+this.getHeight()/2);
+                    yeahYeah.setLocation(this.getLocation().x + this.getWidth() / 2, this.getLocation().y + this.getHeight() / 2);
                     yeahYeah.pack();
                     yeahYeah.setVisible(true);
                 }

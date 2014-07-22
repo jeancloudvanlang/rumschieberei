@@ -5,7 +5,8 @@ import org.junit.Test;
 
 import java.awt.*;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class TileTest {
 
@@ -18,20 +19,20 @@ public class TileTest {
     @Before
     public void setUp() throws Exception {
 
-        locations[0] = new Point(0,0);
+        locations[0] = new Point(0, 0);
         //right neighbours
-        locations[1] = new Point(100,0);
-        locations[2] = new Point(100,100);
-        locations[3] = new Point(100,-100);
+        locations[1] = new Point(100, 0);
+        locations[2] = new Point(100, 100);
+        locations[3] = new Point(100, -100);
         // left neighbours
-        locations[4] = new Point(-100,0);
-        locations[5] = new Point(-100,100);
-        locations[6] = new Point(-100,-100);
+        locations[4] = new Point(-100, 0);
+        locations[5] = new Point(-100, 100);
+        locations[6] = new Point(-100, -100);
         // up and down
-        locations[7] = new Point(0,-100);
-        locations[8] = new Point(0,100);
+        locations[7] = new Point(0, -100);
+        locations[8] = new Point(0, 100);
 
-        for(int i=0; i<numTiles; i++){
+        for (int i = 0; i < numTiles; i++) {
             tiles[i] = new Tile(i);
             tiles[i].setLocation(locations[i]);
             tiles[i].setSize(100, 100);
