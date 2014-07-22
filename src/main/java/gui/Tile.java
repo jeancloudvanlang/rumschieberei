@@ -19,6 +19,12 @@ public class Tile extends JButton {
         setBorder(BorderFactory.createEmptyBorder());
     }
 
+    /**
+     * Check if the other gap/cell is a neighbour
+     * (according to von Neumann)
+     * @param gap The other tile.
+     * @return True if the other tile is a neighbour otherwise false.
+     */
     public boolean isNeighbourOf(Tile gap){
 
         if (

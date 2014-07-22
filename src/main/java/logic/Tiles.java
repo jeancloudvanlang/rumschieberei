@@ -17,10 +17,6 @@ public class Tiles extends Observable implements Iterable<Tile> {
         tiles = new ArrayList<Tile>();
     }
 
-    public Tiles(ArrayList<Tile> tiles){
-        this.tiles = tiles;
-    }
-
     public void add(Tile tile){
         tiles.add(tile);
     }
@@ -44,6 +40,11 @@ public class Tiles extends Observable implements Iterable<Tile> {
         return tiles.iterator();
     }
 
+    /**
+     * Get the position in the tiles array of a tile with the specific id.
+     * @param id The tile id.
+     * @return The position.
+     */
     public int getPosOfTileId(int id) {
         for (int i=0; i<tiles.size(); i++){
             if (tiles.get(i).id == id)
@@ -52,6 +53,10 @@ public class Tiles extends Observable implements Iterable<Tile> {
         throw new IllegalArgumentException();
     }
 
+    /**
+     * Check if the array is ordered according to the tile id.
+     * @return True if the tiles ArrayList is ordered otherwise false.
+     */
     public boolean isOrdered(){
         for (int i=0; i<tiles.size(); i++){
             if (tiles.get(i).id != i)
